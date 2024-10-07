@@ -40,7 +40,7 @@ class characterAdapter : RecyclerView.Adapter<characterAdapter.CharacterViewHold
             nameTextView.text = character.name
             speciesTextView.text = character.species
             genderTextView.text = character.gender
-            Glide.with(itemView.context).load(character.imageUrl).into(imageView)
+            Glide.with(itemView.context).load(character.image).into(imageView)
         }
     }
 }
