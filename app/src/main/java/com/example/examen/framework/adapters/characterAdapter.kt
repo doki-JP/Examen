@@ -1,8 +1,9 @@
-package com.example.examen.presentation
+package com.example.examen.framework.adapters
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -10,12 +11,19 @@ import com.bumptech.glide.Glide
 import com.example.examen.R
 import com.example.examen.data.models.Character
 
-class characterAdapter : RecyclerView.Adapter<characterAdapter.CharacterViewHolder>() {
+class CharacterAdapter : RecyclerView.Adapter<CharacterAdapter.CharacterViewHolder>() {
 
     private var characters: List<Character> = listOf()
+    private var favoriteCharacters: MutableList<Character> = mutableListOf()
+    private var showFavorites: Boolean = false
 
     fun setCharacters(characters: List<Character>) {
         this.characters = characters
+        notifyDataSetChanged()
+    }
+
+    fun filterFavorites(showFavorites: Boolean) {
+        this.showFavorites = showFavorites
         notifyDataSetChanged()
     }
 
@@ -25,20 +33,32 @@ class characterAdapter : RecyclerView.Adapter<characterAdapter.CharacterViewHold
     }
 
     override fun onBindViewHolder(holder: CharacterViewHolder, position: Int) {
-        holder.bind(characters[position])
+        val character = if (showFavorites) favoriteCharacters[position] else characters[position]
+        holder.bind(character)
+        holder.buttonFavorite.text = if (favoriteCharacters.contains(character)) "Favorito" else "Guardar como Favorito"
+        holder.buttonFavorite.setOnClickListener {
+            if (favoriteCharacters.contains(character)) {
+                favoriteCharacters.remove(character)
+                holder.buttonFavorite.text = "Guardar como Favorito"
+            } else {
+                favoriteCharacters.add(character)
+                holder.buttonFavorite.text = "Favorito"
+            }
+        }
     }
 
-    override fun getItemCount(): Int = characters.size
+    override fun getItemCount(): Int = if (showFavorites) favoriteCharacters.size else characters.size
 
     class CharacterViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val nameTextView: TextView = itemView.findViewById(R.id.nameTextView)
         private val speciesTextView: TextView = itemView.findViewById(R.id.speciesTextView)
         private val genderTextView: TextView = itemView.findViewById(R.id.genderTextView)
         private val imageView: ImageView = itemView.findViewById(R.id.imageView)
+        val buttonFavorite: Button = itemView.findViewById(R.id.buttonFavorite)
 
         fun bind(character: Character) {
             nameTextView.text = character.name
-            speciesTextView.text = character.species
+            speciesTextView.text = character.race
             genderTextView.text = character.gender
             Glide.with(itemView.context).load(character.image).into(imageView)
         }
