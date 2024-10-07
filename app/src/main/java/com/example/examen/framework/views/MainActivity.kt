@@ -2,6 +2,7 @@ package com.example.examen.framework.views
 
 import android.os.Bundle
 import android.view.View
+import android.widget.CheckBox
 import android.widget.ProgressBar
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -12,16 +13,16 @@ import com.example.examen.R
 import com.example.examen.data.network.NetworkModuleDI
 import com.example.examen.data.repository.CharacterRepository
 import com.example.examen.domain.GetCharacters
-import com.example.examen.presentation.characterAdapter
-import com.example.examen.presentation.CharacterViewModel
-import com.example.examen.presentation.CharacterViewModelFactory
+import com.example.examen.framework.adapters.CharacterAdapter
+import com.example.examen.framework.viewModels.CharacterViewModel
+import com.example.examen.framework.viewModels.CharacterViewModelFactory
 
 class MainActivity : AppCompatActivity() {
 
     private val viewModel: CharacterViewModel by viewModels {
         CharacterViewModelFactory(GetCharacters(CharacterRepository(NetworkModuleDI.api)))
     }
-    private lateinit var adapter: characterAdapter
+    private lateinit var adapter: CharacterAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,8 +30,9 @@ class MainActivity : AppCompatActivity() {
 
         val progressBar: ProgressBar = findViewById(R.id.progressBar)
         val recyclerView: RecyclerView = findViewById(R.id.recyclerView)
+        val checkBoxFavorites: CheckBox = findViewById(R.id.checkBoxFavorites)
 
-        adapter = characterAdapter()
+        adapter = CharacterAdapter()
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = adapter
 
@@ -50,6 +52,10 @@ class MainActivity : AppCompatActivity() {
                 // Display error message to the user (e.g., Toast or Snackbar)
             }
         })
+
+        checkBoxFavorites.setOnCheckedChangeListener { _, isChecked ->
+            adapter.filterFavorites(isChecked)
+        }
 
         // Scroll listener for pagination
         recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {

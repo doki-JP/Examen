@@ -1,4 +1,4 @@
-package com.example.examen.presentation
+package com.example.examen.framework.viewModels
 
 import androidx.lifecycle.*
 import com.example.examen.data.models.Character
