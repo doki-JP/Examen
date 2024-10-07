@@ -38,7 +38,7 @@ class characterAdapter : RecyclerView.Adapter<characterAdapter.CharacterViewHold
 
         fun bind(character: Character) {
             nameTextView.text = character.name
-            speciesTextView.text = character.species
+            speciesTextView.text = character.race
             genderTextView.text = character.gender
             Glide.with(itemView.context).load(character.image).into(imageView)
         }

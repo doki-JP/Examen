@@ -3,7 +3,7 @@ package com.example.examen.data.models
 data class Character(
     val id: Int,
     val name: String,
-    val species: String,
+    val race: String,
     val gender: String,
     val image: String
 )
