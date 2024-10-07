@@ -5,7 +5,11 @@ data class Character(
     val name: String,
     val race: String,
     val gender: String,
-    val image: String
+    val image: String,
+    val ki: String,
+    val maxKi:String,
+    val description:String,
+    val affiliation:String
 )
 
 data class CharacterResponse(

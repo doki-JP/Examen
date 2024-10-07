@@ -18,30 +18,141 @@
             android:layout_gravity="center"
             android:scaleType="fitCenter" />
 
-        <TextView
-            android:id="@+id/nameTextView"
-            android:layout_width="wrap_content"
+        <GridLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:textStyle="bold"
-            android:textSize="18dp"
-            android:paddingTop="8dp" />
+            android:columnCount="2"
+            android:rowCount="4"
+            android:layout_gravity="center">
 
-        <TextView
-            android:id="@+id/speciesTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:textSize="12dp"
-            android:paddingTop="4dp" />
+            <TextView
+                android:id="@+id/nameLabel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:text="Name:"
+                android:textStyle="bold"
+                android:textSize="12dp"
+                android:paddingTop="4dp" />
 
-        <TextView
-            android:id="@+id/genderTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:textSize="12dp"
-            android:paddingTop="4dp" />
+            <TextView
+                android:id="@+id/nameTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:textSize="12dp"
+                android:paddingTop="4dp" />
+
+            <TextView
+                android:id="@+id/speciesLabel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:text="Species:"
+                android:textStyle="bold"
+                android:textSize="12dp"
+                android:paddingTop="4dp" />
+
+            <TextView
+                android:id="@+id/speciesTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:textSize="12dp"
+                android:paddingTop="4dp" />
+
+            <TextView
+                android:id="@+id/genderLabel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:text="Gender:"
+                android:textStyle="bold"
+                android:textSize="12dp"
+                android:paddingTop="4dp" />
+
+            <TextView
+                android:id="@+id/genderTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:textSize="12dp"
+                android:paddingTop="4dp" />
+
+            <TextView
+                android:id="@+id/kiLabel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:text="Ki:"
+                android:textStyle="bold"
+                android:textSize="12dp"
+                android:paddingTop="4dp" />
+
+            <TextView
+                android:id="@+id/kiTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:textSize="12dp"
+                android:paddingTop="4dp" />
+
+            <TextView
+                android:id="@+id/maxKiLabel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:text="Max Ki:"
+                android:textStyle="bold"
+                android:textSize="12dp"
+                android:paddingTop="4dp" />
+
+            <TextView
+                android:id="@+id/maxKiTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:textSize="12dp"
+                android:paddingTop="4dp" />
+
+            <TextView
+                android:id="@+id/affiliationLabel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:text="Affiliation:"
+                android:textStyle="bold"
+                android:textSize="12dp"
+                android:paddingTop="4dp" />
+
+            <TextView
+                android:id="@+id/affiliationTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:textSize="12dp"
+                android:paddingTop="4dp" />
+
+            <TextView
+                android:id="@+id/descriptionLabel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_columnSpan="2"
+                android:text="Description:"
+                android:textStyle="bold"
+                android:textSize="12dp"
+                android:paddingTop="4dp" />
+
+            <TextView
+                android:id="@+id/descriptionTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_columnSpan="2"
+                android:textSize="12dp"
+                android:paddingTop="4dp" />
+        </GridLayout>
 
         <Button
             android:id="@+id/buttonFavorite"

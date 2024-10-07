@@ -53,6 +53,10 @@ class CharacterAdapter : RecyclerView.Adapter<CharacterAdapter.CharacterViewHold
         private val nameTextView: TextView = itemView.findViewById(R.id.nameTextView)
         private val speciesTextView: TextView = itemView.findViewById(R.id.speciesTextView)
         private val genderTextView: TextView = itemView.findViewById(R.id.genderTextView)
+        private val kiTextView: TextView = itemView.findViewById(R.id.kiTextView)
+        private val maxKiTextView: TextView = itemView.findViewById(R.id.maxKiTextView)
+        private val affiliationTextView: TextView = itemView.findViewById(R.id.affiliationTextView)
+        private val descriptionTextView: TextView = itemView.findViewById(R.id.descriptionTextView)
         private val imageView: ImageView = itemView.findViewById(R.id.imageView)
         val buttonFavorite: Button = itemView.findViewById(R.id.buttonFavorite)
 
@@ -60,6 +64,10 @@ class CharacterAdapter : RecyclerView.Adapter<CharacterAdapter.CharacterViewHold
             nameTextView.text = character.name
             speciesTextView.text = character.race
             genderTextView.text = character.gender
+            kiTextView.text = character.ki
+            maxKiTextView.text = character.maxKi
+            affiliationTextView.text = character.affiliation
+            descriptionTextView.text = character.description
             Glide.with(itemView.context).load(character.image).into(imageView)
         }
     }
