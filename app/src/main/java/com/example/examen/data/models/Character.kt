@@ -5,11 +5,11 @@ data class Character(
     val name: String,
     val species: String,
     val gender: String,
-    val imageUrl: String
+    val image: String
 )
 
 data class CharacterResponse(
-    val items: List<Character>,  
+    val items: List<Character>,
     val meta: Meta
 )
 
