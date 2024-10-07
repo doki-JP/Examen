@@ -1,4 +1,4 @@
-package com.example.examen
+package com.example.examen.framework.views
 
 import android.os.Bundle
 import android.view.View
@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.examen.R
 import com.example.examen.data.network.NetworkModuleDI
 import com.example.examen.data.repository.CharacterRepository
 import com.example.examen.domain.GetCharacters

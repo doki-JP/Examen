@@ -9,7 +9,14 @@ data class Character(
 )
 
 data class CharacterResponse(
-    val data: List<Character>,
-    val page: Int,
-    val totalPages: Int
+    val items: List<Character>,  
+    val meta: Meta
+)
+
+data class Meta(
+    val totalItems: Int,
+    val itemCount: Int,
+    val itemsPerPage: Int,
+    val totalPages: Int,
+    val currentPage: Int
 )
