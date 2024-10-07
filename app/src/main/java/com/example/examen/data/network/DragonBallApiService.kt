@@ -5,6 +5,6 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface DragonBallApiService {
-    @GET("api/characters")
+    @GET("api/characters/")
     suspend fun getCharacters(@Query("page") page: Int): CharacterResponse
 }

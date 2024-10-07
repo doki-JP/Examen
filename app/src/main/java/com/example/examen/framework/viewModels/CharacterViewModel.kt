@@ -26,19 +26,15 @@ class CharacterViewModel(private val getCharactersUseCase: GetCharacters) : View
     private fun fetchCharacters() {
         viewModelScope.launch {
             _loading.value = true
-            _error.value = null  // Reset error state
             try {
-                val response = getCharactersUseCase(currentPage)
-                response.data?.let { newCharacters ->
-                    allCharacters.addAll(newCharacters)
-                    _characters.value = allCharacters
-                }
-                currentPage++  // Increment the page number for future fetches
+                val characterResponse = getCharactersUseCase(currentPage)
+                allCharacters.addAll(characterResponse.items)
+                _characters.value = allCharacters
+                currentPage++
             } catch (e: Exception) {
-                _error.value = "Failed to load characters: ${e.message}"
-            } finally {
-                _loading.value = false
+                _error.value = e.message
             }
+            _loading.value = false
         }
     }
 
